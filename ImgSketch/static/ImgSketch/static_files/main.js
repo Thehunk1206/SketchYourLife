@@ -1,18 +1,24 @@
 /*About Us*/
 function openAU() {
-  document.getElementById("mySidenavAU").style.width = "20%";
+  document.getElementById("mySidenavAU").style.width = "auto";
+  document.getElementById("mySidenavAU").style.height = "99%";
+  document.getElementById("mySidenavAU").style.padding = "2%";
 }
 
 function closeAU() {
   document.getElementById("mySidenavAU").style.width = "0";
+  document.getElementById("mySidenavAU").style.padding = "0";
 }
 /*contact us*/ 
 function openNav() {
-    document.getElementById("mySidenav").style.width = "23%";
+    document.getElementById("mySidenav").style.width = "auto";
+    document.getElementById("mySidenav").style.height = "99%";
+    document.getElementById("mySidenav").style.padding = "2%";
   }
   
   function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("mySidenav").style.padding = "0";
   }
 
 /*Format validation*/
@@ -53,7 +59,3 @@ if (file) {
 
 }else {}
 });
-
-function fileDel() {
-    console.log("file Del running")
-}

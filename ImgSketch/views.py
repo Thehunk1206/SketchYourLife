@@ -12,27 +12,30 @@ from .models import SketchForLife
 
 
 def home(request):
-    
-    if request.method == 'POST' and request.FILES['ufile']:
-        ufile = request.FILES['ufile']
-        fs = FileSystemStorage()
-        filename = fs.save(ufile.name, ufile)
-        uploaded_file_url = fs.url(filename)
-        
+    try:
+        if os.path.exists("../mysite/media/"):
+            for f in os.listdir("../mysite/media/"):
+                os.remove(os.path.join("../mysite/media/", f))
+                print ("done")
+        else:
+            print("oyee")
+    finally:
+        if request.method == 'POST' and request.FILES['ufile']:
+            ufile = request.FILES['ufile']
+            fs = FileSystemStorage()
+            filename = fs.save(ufile.name, ufile)
+            uploaded_file_url = fs.url(filename)
+            
 
-        output = SketchForLife(uploaded_file_url)
-        output = output.retval
+            output = SketchForLife(uploaded_file_url)
+            uploaded_file_url = ""
+            output = output.retval
 
-        
+            
 
 
-        return render(request, 'ImgSketch/main.html', {
-            'uploaded_file_url': uploaded_file_url,'outputf':output
-        })
-    if os.path.exists("../mysite/media/"):
-        for f in os.listdir("../mysite/media/"):
-            os.remove(os.path.join("../mysite/media/", f))
-            print ("done")
-    else:
-        print("oyee")
-    return render(request, 'ImgSketch/main.html')
+            return render(request, 'ImgSketch/main.html', {
+                'uploaded_file_url': uploaded_file_url,'outputf':output
+            })
+
+        return render(request, 'ImgSketch/main.html')

@@ -35,17 +35,18 @@
     </style>
     <!-- Custom styles for this template -->
     <link href="{% static 'ImgSketch/static_files/cover.css' %}" rel="stylesheet">
-    <link href="{% static 'ImgSketch/static_files/mycss.css' %}" rel="stylesheet">
+    <link href="{% static 'ImgSketch/static_files/main.css' %}" rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/01c60f5aa6.js" crossorigin="anonymous"></script>
   </head>
 
-  <body onload="fileDel()">
+  <body>
 
     <div id="mySidenavAU" class="sidenavs">
       <a href="javascript:void(0)" class="closebtn" onclick="closeAU()">&times;</a><br><br>
       <h3 style="font-variant: small-caps;">About Us: </h3>
-      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hello</p>
+      <h6>Hey there,<br>Thanks for visiting us.<br>Hope you like it ^_^</h6>
+      <p style="left: 10px;">Special Thanks to <a href="https://www.linkedin.com/in/niki-parmar-7a06a11aa">Niki Parmar</a> for providing us with the logo</p>
     </div>
 
 
@@ -61,6 +62,8 @@
       </nav>
     </div>
   </header><hr style="width:100%;text-align:center;background-color: white;">
+
+  
 
   <main role="main" class="inner cover">
     <h1 class="cover-heading">Add an image here</h1>
@@ -108,7 +111,7 @@
   
   
 
-<script src="{% static 'ImgSketch/static_files/myjs.js' %}"></script>
+<script src="{% static 'ImgSketch/static_files/main.js' %}"></script>
 
 </body>
 </html>

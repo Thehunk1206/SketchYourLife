@@ -21,23 +21,28 @@
   text-align:center;
 }
 
-.sidenavs a {
-  padding: 8px 8px 8px 32px;
+.sidenavs p {
   text-decoration: none;
   font-size: 16px;
+  position: absolute;
+  bottom: 0;
   color: #c7c1c1;
-  display: block;
   transition: 0.3s;
 
 }
-
+.sidenavs a{
+  text-decoration: none;
+  font-size: 16px;
+  color: #c7c1c1;
+  transition: 0.3s;
+}
 .sidenavs a:hover{
   color: #ffffff;
 }
 .sidenavs .closebtn {
   position: absolute;
   top: 0;
-  left: 10px;
+  left: 0;
   font-size: 36px;
   margin-left: 10px;
 }
@@ -138,24 +143,19 @@ input[type=file] {
 
 @media only screen and (max-width:800px) {
     /* For tablets: */
-.fitimage, .image-preview__image, .image-preview, input[type=submit],nav, #btnstyle,.sidenav,.sidenavs,h3{
+.fitimage, .image-preview__image, .image-preview, input[type=submit],nav, #btnstyle,h3{
       width: 80%;
       padding: 0;
     }
 }
 @media only screen and (max-width:500px) {
     /* For mobile phones: */
-.fitimage, .image-preview__image, .image-preview, input[type=submit], nav, #btnstyle,.sidenav,.sidenavs,h3 {
+.fitimage, .image-preview__image, .image-preview, input[type=submit], nav, #btnstyle,h3 {
       width: 100%;
     }
-@media screen and (max-width: 350px) {
-      .sidenav {padding-top: 10px;width: 10;position: static;}
-      .sidenav a {font-size: 12px;width: 10;position: static;}
-      .sidenavs {padding-top: 10px;width: 10;position: static;}
-      .sidenavs a {font-size: 12px;width: 10;position: static;}
- }
-
   }
+
+
   h1{
     font-family: monospace;
     text-align: center;
