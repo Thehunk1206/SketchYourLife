@@ -1,0 +1,136 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>Sketch For Life</title>
+
+    <!--link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/cover/"-->
+    <link rel="shortcut icon" href="">
+    <!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="{% static 'ImgSketch/static_files/cover.css' %}" rel="stylesheet">
+<<<<<<< HEAD
+    <link href="{% static 'ImgSketch/static_files/mycss.css' %}" rel="stylesheet">
+=======
+    <link href="{% static 'ImgSketch/static_files/main.css' %}" rel="stylesheet">
+>>>>>>> dexploit_frontend
+
+    <script src="https://kit.fontawesome.com/01c60f5aa6.js" crossorigin="anonymous"></script>
+  </head>
+
+<<<<<<< HEAD
+  <body onload="fileDel()">
+=======
+  <body>
+>>>>>>> dexploit_frontend
+
+    <div id="mySidenavAU" class="sidenavs">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeAU()">&times;</a><br><br>
+      <h3 style="font-variant: small-caps;">About Us: </h3>
+<<<<<<< HEAD
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hello</p>
+=======
+      <h6>Hey there,<br>Thanks for visiting us.<br>Hope you like it ^_^</h6>
+      <p style="left: 10px;">Special Thanks to <a href="https://www.linkedin.com/in/niki-parmar-7a06a11aa">Niki Parmar</a> for providing us with the logo</p>
+>>>>>>> dexploit_frontend
+    </div>
+
+
+    <div class="cover-container d-flex w-100 h-100 p-30 mx-auto flex-column text-center">
+  <header class="masthead mb-auto">
+    <div class="inner">
+      <h3 class="masthead-brand"><a class="nav-link active  multicolortext" href="">Sketch For Life</a></h3>
+      <nav class="nav nav-masthead justify-content-center">
+        <!--a class="nav-link active" href="#">Home</a>
+        <a class="nav-link" href="#">Features</a-->
+          <a class="nav-link" style="margin-left: auto;" onclick="openAU()" ondblclick="closeAU()">About Us</a>
+        <a class="nav-link" style="margin-right: auto;" onclick="openNav()" ondblclick="closeNav()">Contact Us</a>
+      </nav>
+    </div>
+  </header><hr style="width:100%;text-align:center;background-color: white;">
+
+<<<<<<< HEAD
+=======
+  
+
+>>>>>>> dexploit_frontend
+  <main role="main" class="inner cover">
+    <h1 class="cover-heading">Add an image here</h1>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+        <div class="image-preview" id="imgPreview">
+            <img src="" alt="Image Preview" class="image-preview__image fitimage">
+            <span class="image-preview__default-text">Image Preview</span>
+        </div>
+      
+        <input class="btn btn-lg btn-secondary" type="file" name="ufile" id="upfile" accept="image/*" required/>
+        <label for="upfile" title="Upload file" class="btn btn-lg btn-secondary" id="btnstyle">Choose an Image</label>
+        <input type="submit" value="Lets's Sketch" class="btn btn-lg btn-secondary" />
+      
+    <!--p class="lead"></p>
+    <p class="lead">
+      <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
+    </p-->
+    </form>
+  </main>
+
+  <footer class="mastfoot mt-auto">
+    <div class="inner">
+      <p>&copy; Copyright 2020 <a href="">ImageSketch</a>, by <a href="https://www.linkedin.com/in/tauhid-khan-24bb45177">@Tauhid</a> & <a href="https://www.linkedin.com/in/devyesh-thomas-b93ab71a1">@Devyesh</a>.</p>
+    </div>
+  </footer>
+</div>
+<div id="mySidenav" class="sidenav wrapper">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a><br>
+  <h3 style="font-variant: small-caps;">Contact Us At</h3><hr style="width:50%;text-align:center;background-color: white;"><br>
+  <i class="fas fa-envelope fa-2x" style="color:rgba(255, 255, 255, 0.788)"></i>
+  <a href="mailto: thomas.devyesh.3a29@gmail.com">Devyesh Thomas</a>
+  <a href="mailto: khantauhid313@gmail.com">Tauhid Khan</a><br>
+  <i class="fa fa-instagram fa-2x" style="color:rgba(255, 255, 255, 0.788)"></i>
+  <a href="https://www.instagram.com/__d_thomas__/">@__d_thomas__</a>
+  <a href="https://www.instagram.com/khansahab1206/">@khansahab1206</a><br>
+  <i class="fa fa-twitter fa-2x" style="color:rgba(255, 255, 255, 0.788)"></i>
+  <a href="https://twitter.com/DevyeshThomas/">@DevyeshThomas</a>
+  <a href="https:/twitter.com/KhanTauhid8/">@KhanTauhid8</a><br>
+  <i class="fa fa-linkedin fa-2x" style="color:rgba(255, 255, 255, 0.788)"></i>
+  <a href="https://www.linkedin.com/in/devyesh-thomas-b93ab71a1">Devyesh-Thomas</a>
+  <a href="https://www.linkedin.com/in/tauhid-khan-24bb45177">Tauhid-Khan</a>
+
+</div>
+  
+  
+
+<<<<<<< HEAD
+<script src="{% static 'ImgSketch/static_files/myjs.js' %}"></script>
+=======
+<script src="{% static 'ImgSketch/static_files/main.js' %}"></script>
+>>>>>>> dexploit_frontend
+
+</body>
+</html>
