@@ -1,15 +1,44 @@
 '''
-author: Tauhid
-date : 23/08/2020
-copyright (C) 2020 Tauhid, All rights reserved
+BSD 3-Clause License
+
+Copyright (c) 2020, Tauhid Khan, Devyesh Thomas
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 '''
+
 import numpy as np
 from numpy import ndarray
+from scipy.signal import convolve2d
 from PIL import Image, UnidentifiedImageError
 
 
 class ImageProcess:
     '''
+    TODO change all variable of the class to private members
     Main class for implementing some Image processing and image minipulation
 
     Algorithm implemented:
@@ -54,8 +83,7 @@ class ImageProcess:
             self.y = np.rot90(img, k)
             return self.y
         else:
-            self.img = img
-            return self.img
+            return img
 
     def _gaussian_distribution(self, x: ndarray, mu: float, sigma: float) -> ndarray:
         """
@@ -90,7 +118,8 @@ class ImageProcess:
         # create the 1D array of equally spaced distance point of given size
         self.kernel_1d = np.linspace(-(size//2), size//2, size)
         # get the gaussian distribution of the 1D array
-        self.kernel_1d = _gaussian_distribution(kernel_1d, mu, sigma)
+        self.kernel_1d = self._gaussian_distribution(
+            self.kernel_1d, mu, sigma)
 
         # Compute the outer product of kernel1D tranpose and kernel1D
         self.kernel_2d = np.outer(self.kernel_1d.T, self.kernel_1d)
@@ -181,7 +210,7 @@ class ImageProcess:
 
         """
         # checks if the image is already in grayscale format
-        if _isGrayscale(img):
+        if self._isGrayscale(img):
             return img
         else:
             self.rgb_weights = np.array([0.2126, 0.7152, 0.0722])
@@ -218,14 +247,34 @@ class ImageProcess:
         self.kernel_size = kernel.shape[0]
         self.convolved_output = np.zeros_like(img)
 
-        self.padded_image = _pad_image(img, pad_width=kernel_size-2)
+        self.padded_image = self._pad_image(img, pad_width=self.kernel_size-2)
 
         for x in range(img.shape[1]):
             for y in range(img.shape[0]):
                 self.convolved_output[y, x] = (
-                    kernel * self.padded_image[y:y+kernel_size, x:x+kernel_size]).sum()
+                    kernel * self.padded_image[y:y+self.kernel_size, x:x+self.kernel_size]).sum()
 
         return self.convolved_output
+
+    def gaussianBlur(self, img: ndarray, kernel_size: int = 21, sigma: float = 10.0) -> ndarray:
+        """
+        NOTE: For now we use Scipy.sigmal.convolve2d and not naiveConvolve2d
+
+        Apply gaussian blurr on given image
+
+        args:
+            img - [ndarray] Image to be blurred
+            kernel_size - [int] size of the kernel (sizexsize)
+            sigma - [float] standard deviation for gaussian distribution
+
+        return:
+            blurred_img - [ndarray] blurred image 
+        """
+
+        self.__kernel = self._generate_gaussian_kernel(kernel_size, sigma)
+        self.__blurrImg = convolve2d(img, self.__kernel, mode='same')
+        self.__blurrImg = self._normalize_img(self.__blurrImg, range_end=255.0)
+        return self.__blurrImg
 
     def colorDodge(self, img1: ndarray, img2: ndarray) -> ndarray:
         """
@@ -237,9 +286,10 @@ class ImageProcess:
             img2 - [ndarray] image 2
 
         return:
-            blended_img - [ndarray] Image1 blended with Image2
+            blended_img - [ndarray] Image1 blended with Image2x
         """
-        self.blended_img = img2/((1.0 - img1)+10e-12)
-        self.blended_img[self.blended_img > 1.0] = 1.0
-        self.blended_img = _normalize_img(self.blended_img, range_end=255.0)
+        self.blended_img = img2/((256.0 - img1)+10e-12)
+        self.blended_img[self.blended_img > 255.0] = 255.0
+        self.blended_img = self._normalize_img(
+            self.blended_img, range_end=255.0)
         return self.blended_img
