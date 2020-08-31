@@ -32,8 +32,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import numpy as np
 from numpy import ndarray
-from scipy.signal import convolve2d
+from cv2 import filter2D, imwrite
 from PIL import Image, UnidentifiedImageError
+
+import os
 
 
 class ImageProcess:
@@ -198,6 +200,10 @@ class ImageProcess:
             return None
         return self.img
 
+    def saveImage(self, img: ndarray, path: str, name: str, imageFormat: str = ".png") -> bool:
+        self.__isSaved = imwrite(os.path.join(path, name)+imageFormat, img)
+        return self.__isSaved
+
     def RGB2GRAY(self, img: ndarray) -> ndarray:
         """
         Converts a RGB image to Grayscale image
@@ -258,7 +264,7 @@ class ImageProcess:
 
     def gaussianBlur(self, img: ndarray, kernel_size: int = 21, sigma: float = 10.0) -> ndarray:
         """
-        NOTE: For now we use Scipy.sigmal.convolve2d and not naiveConvolve2d
+        NOTE: For now we use cv2.filter2d and not naiveConvolve2d to speed up computation
 
         Apply gaussian blurr on given image
 
@@ -270,9 +276,11 @@ class ImageProcess:
         return:
             blurred_img - [ndarray] blurred image 
         """
+        if not isinstance(img, ndarray):
+            raise "image should be in form of np.ndarray"
 
         self.__kernel = self._generate_gaussian_kernel(kernel_size, sigma)
-        self.__blurrImg = convolve2d(img, self.__kernel, mode='same')
+        self.__blurrImg = filter2D(img, -1, self.__kernel)
         self.__blurrImg = self._normalize_img(self.__blurrImg, range_end=255.0)
         return self.__blurrImg
 
@@ -282,14 +290,17 @@ class ImageProcess:
         It blends the image1 with image2 as background
 
         args:
-            img1 - [ndarray] image 1
-            img2 - [ndarray] image 2
+            img1 - [ndarray] image 1 should be normalized within the range (0,1)
+            img2 - [ndarray] image 2 should be normalized within the range (0,1)
 
         return:
             blended_img - [ndarray] Image1 blended with Image2x
         """
-        self.blended_img = img2/((256.0 - img1)+10e-12)
-        self.blended_img[self.blended_img > 255.0] = 255.0
+        if img1.max()>1.0 and img2.max()>1.0:
+            raise "np.ndarray should be normalized within the range (0,1)"
+        
+        self.blended_img = img2/((1.0 - img1)+10e-12)
+        self.blended_img[self.blended_img > 1.0] = 1.0
         self.blended_img = self._normalize_img(
             self.blended_img, range_end=255.0)
         return self.blended_img
