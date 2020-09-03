@@ -287,7 +287,7 @@ class ImageProcess:
     def colorDodge(self, img1: ndarray, img2: ndarray) -> ndarray:
         """
         TODO to implement different type of image blending
-        It blends the image1 with image2 as background
+        It blends the image1 with image2 as background using colorDodge
 
         args:
             img1 - [ndarray] image 1 should be normalized within the range (0,1)
@@ -303,4 +303,4 @@ class ImageProcess:
         self.blended_img[self.blended_img > 1.0] = 1.0
         self.blended_img = self._normalize_img(
             self.blended_img, range_end=255.0)
-        return self.blended_img
+        return self.blended_img                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
