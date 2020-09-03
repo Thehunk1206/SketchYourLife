@@ -4,38 +4,39 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
-
-from subprocess import run,PIPE,Popen
-import sys,os
+import os
 from pathlib import Path
-from .models import SketchForLife
-
+from PIL import Image
 
 def home(request):
-    try:
-        if os.path.exists("../mysite/media/"):
-            for f in os.listdir("../mysite/media/"):
-                os.remove(os.path.join("../mysite/media/", f))
-                print ("done")
+    try:    #TODOdelete from file system storage
+        if os.path.exists("./media/"):#"../WebApp/media/"
+            for f in os.listdir("./media/"):
+                os.remove(os.path.join("./media/", f))
         else:
-            print("oyee")
+            pass #TODOraise error and refresh page
     finally:
-        if request.method == 'POST' and request.FILES['ufile']:
-            ufile = request.FILES['ufile']
+        if request.method == 'POST':
+            try:
+                ufile = request.FILES['ufile']
+            except:
+                return render(request, 'SketchYourLife/upload.html')
             fs = FileSystemStorage()
-            filename = fs.save(ufile.name, ufile)
-            uploaded_file_url = fs.url(filename)
+            fs.save(ufile.name, ufile)
+            openImg = Image.open(ufile)
+            finalImg = openImg.rotate(180)
+            finalImg.save("./ImgSketch/static/SketchYourLife/sketched/"+ufile.name)#./WebApp
+
+            for a in os.listdir("./ImgSketch/static/SketchYourLife/sketched/"):
+                sketched = os.path.join("static/SketchYourLife/sketched/",a)
             
-
-            output = SketchForLife(uploaded_file_url)
-            uploaded_file_url = ""
-            output = output.retval
-
-            
-
-
-            return render(request, 'ImgSketch/main.html', {
-                'uploaded_file_url': uploaded_file_url,'outputf':output
+            return render(request, 'SketchYourLife/sketch.html', {
+                'sketched': sketched
             })
+        if os.path.exists("./ImgSketch/static/SketchYourLife/sketched/"):#"../WebApp/media/"
+                for f in os.listdir("./ImgSketch/static/SketchYourLife/sketched/"):
+                    os.remove(os.path.join("./ImgSketch/static/SketchYourLife/sketched/", f))
+        else:
+            pass
 
-        return render(request, 'ImgSketch/main.html')
+        return render(request, 'SketchYourLife/upload.html')

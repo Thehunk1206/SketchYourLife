@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class ImgsketchConfig(AppConfig):
+class ImgSketchConfig(AppConfig):
     name = 'ImgSketch'

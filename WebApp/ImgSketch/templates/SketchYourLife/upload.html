@@ -1,0 +1,19 @@
+{% extends "SketchYourLife/base.html" %}
+{% block content %}
+{% load static %}
+<h1 class="cover-heading">Add an image here</h1>
+
+<form  action="" method="POST" enctype="multipart/form-data" onsubmit="TP()" novalidate>
+  {% csrf_token %}
+    <div class="image-preview" id="imgPreview"><!--try-->
+        <img src="" alt="Image Preview" class="image-preview__image fitimage"><!--onload="finalImg()"-->
+        <span class="image-preview__default-text">Let's start by choosing an Image</span>
+    </div>
+  
+    <input class="btn btn-lg btn-secondary" type="file" name="ufile" id="upfile" accept="image/*"/>
+    <label for="upfile" title="Upload file" class="btn btn-lg btn-secondary" id="btnstyle">Choose an Image</label>
+    <input type="submit" value="Lets's Sketch" class="btn btn-lg btn-secondary" onclick="ImageCheck()"/>
+  
+</form>
+<script src="{% static 'SketchYourLife/static_files/sketchscript.js' %}"></script>
+{% endblock content %}
