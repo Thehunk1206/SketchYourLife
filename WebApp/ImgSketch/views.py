@@ -25,17 +25,17 @@ def home(request):
             fs.save(ufile.name, ufile)
             openImg = Image.open(ufile)
             finalImg = openImg.rotate(180)
-            finalImg.save("./SketchYourLife/static/SketchYourLife/sketched/"+ufile.name)#./WebApp
+            finalImg.save("./ImgSketch/static/SketchYourLife/sketched/"+ufile.name)#./WebApp
 
-            for a in os.listdir("./SketchYourLife/static/SketchYourLife/sketched/"):
+            for a in os.listdir("./ImgSketch/static/SketchYourLife/sketched/"):
                 sketched = os.path.join("static/SketchYourLife/sketched/",a)
             
             return render(request, 'SketchYourLife/sketch.html', {
                 'sketched': sketched
             })
-        if os.path.exists("./SketchYourLife/static/SketchYourLife/sketched/"):#"../WebApp/media/"
-                for f in os.listdir("./SketchYourLife/static/SketchYourLife/sketched/"):
-                    os.remove(os.path.join("./SketchYourLife/static/SketchYourLife/sketched/", f))
+        if os.path.exists("./ImgSketch/static/SketchYourLife/sketched/"):#"../WebApp/media/"
+                for f in os.listdir("./ImgSketch/static/SketchYourLife/sketched/"):
+                    os.remove(os.path.join("./ImgSketch/static/SketchYourLife/sketched/", f))
         else:
             pass
 

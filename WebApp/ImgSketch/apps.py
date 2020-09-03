@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class SkechyourlifeConfig(AppConfig):
-    name = 'SketchYourLife'
+class ImgSketchConfig(AppConfig):
+    name = 'ImgSketch'
