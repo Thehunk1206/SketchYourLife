@@ -36,8 +36,8 @@ from PIL import Image
 
 from datetime import datetime
 
-from WebApp.ImgSketch.core.ProcessImage import ImageProcess
-#from ProcessImage import ImageProcess
+#from WebApp.ImgSketch.core.ProcessImage import ImageProcess
+from .ProcessImage import ImageProcess
 
 
 class Image2Sketch(ImageProcess):

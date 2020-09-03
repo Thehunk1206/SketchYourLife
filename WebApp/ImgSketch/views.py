@@ -6,7 +6,10 @@ from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 import os
 from pathlib import Path
-from PIL import Image
+
+from .core.ImageToSketch import Image2Sketch
+
+PATHOUT = "./ImgSketch/static/SketchYourLife/sketched/"
 
 def home(request):
     try:    #TODOdelete from file system storage
@@ -23,9 +26,14 @@ def home(request):
                 return render(request, 'SketchYourLife/upload.html')
             fs = FileSystemStorage()
             fs.save(ufile.name, ufile)
-            openImg = Image.open(ufile)
-            finalImg = openImg.rotate(180)
-            finalImg.save("./ImgSketch/static/SketchYourLife/sketched/"+ufile.name)#./WebApp
+
+            im2sk = Image2Sketch(pathIn=ufile,pathOut=PATHOUT,nameOut=ufile.name)
+            im2sk.set_kernelsize_sigma(k=111,s=30)
+            success = im2sk.sketch_it()
+            if success:
+                print("COnverted successfully!!")
+            else:
+                print("something went wrong")
 
             for a in os.listdir("./ImgSketch/static/SketchYourLife/sketched/"):
                 sketched = os.path.join("static/SketchYourLife/sketched/",a)
