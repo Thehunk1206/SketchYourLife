@@ -200,8 +200,8 @@ class ImageProcess:
             return None
         return self.img
 
-    def saveImage(self, img: ndarray, path: str, name: str, imageFormat: str = ".png") -> bool:
-        self.__isSaved = imwrite(os.path.join(path, name)+imageFormat, img)
+    def saveImage(self, img: ndarray, path: str, name: str) -> bool:
+        self.__isSaved = imwrite(os.path.join(path, name), img)
         return self.__isSaved
 
     def RGB2GRAY(self, img: ndarray) -> ndarray:

@@ -101,7 +101,7 @@ class Image2Sketch(ImageProcess):
             img1=self.negativeBlur,
             img2=self.grayImg)
         self.succes = super().saveImage(self.sketchImg, self.__pathOut,
-                                        self.__nameOut+str(self.__KERNEL_SIZE))
+                                        "sketched_"+self.__nameOut)
         return self.succes
 
     def __str__(self):
