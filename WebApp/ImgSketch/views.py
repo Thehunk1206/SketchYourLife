@@ -4,9 +4,14 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
+
 import os
-from pathlib import Path
-from PIL import Image
+
+from .core.ImageToSketch import Image2Sketch
+
+PATHOUT = "./ImgSketch/static/SketchYourLife/sketched/"
+KERNEL_SIZE = 121
+SIGMA = 30
 
 def home(request):
     try:    #TODOdelete from file system storage
@@ -23,11 +28,16 @@ def home(request):
                 return render(request, 'SketchYourLife/upload.html')
             fs = FileSystemStorage()
             fs.save(ufile.name, ufile)
-            openImg = Image.open(ufile)
-            finalImg = openImg.rotate(180)
-            finalImg.save("./ImgSketch/static/SketchYourLife/sketched/"+ufile.name)#./WebApp
 
-            for a in os.listdir("./ImgSketch/static/SketchYourLife/sketched/"):
+            im2sk = Image2Sketch(pathIn=ufile,pathOut=PATHOUT,nameOut=ufile.name)
+            im2sk.set_kernelsize_sigma(k=KERNEL_SIZE,s=SIGMA)
+            success = im2sk.sketch_it()
+            if success:
+                print("COnverted successfully!!")
+            else:
+                print("something went wrong")
+
+            for a in os.listdir(PATHOUT):
                 sketched = os.path.join("static/SketchYourLife/sketched/",a)
             
             return render(request, 'SketchYourLife/sketch.html', {

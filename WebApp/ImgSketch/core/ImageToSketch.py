@@ -36,8 +36,8 @@ from PIL import Image
 
 from datetime import datetime
 
-from WebApp.ImgSketch.core.ProcessImage import ImageProcess
-#from ProcessImage import ImageProcess
+#from WebApp.ImgSketch.core.ProcessImage import ImageProcess
+from .ProcessImage import ImageProcess
 
 
 class Image2Sketch(ImageProcess):
@@ -101,7 +101,7 @@ class Image2Sketch(ImageProcess):
             img1=self.negativeBlur,
             img2=self.grayImg)
         self.succes = super().saveImage(self.sketchImg, self.__pathOut,
-                                        self.__nameOut+str(self.__KERNEL_SIZE))
+                                        "sketched_"+self.__nameOut)
         return self.succes
 
     def __str__(self):
