@@ -1,9 +1,14 @@
 {% extends "SketchYourLife/base.html" %}
 {% block content %}
 {% load static %}
+<body onload="Splash()">
+<div class="splash">
+  <img class="fadeIn" src="{% static 'SketchYourLife/static_files/logo.png' %}" style="width: auto;"/><br>
+  <!--h1 class="fadeIn">Welcome to Sketch Your Life</h1-->
+</div>
 <h1 class="cover-heading">Add an image here</h1>
 
-<form  action="" method="POST" enctype="multipart/form-data" onsubmit="TP()" novalidate>
+<form  action="" method="POST" enctype="multipart/form-data" onsubmit="preLoader()" novalidate>
   {% csrf_token %}
     <div class="image-preview" id="imgPreview"><!--try-->
         <img src="" alt="Image Preview" class="image-preview__image fitimage"><!--onload="finalImg()"-->
@@ -16,4 +21,12 @@
   
 </form>
 <script src="{% static 'SketchYourLife/static_files/sketchscript.js' %}"></script>
+<script>
+  const splash = document.querySelector(".splash");
+function Splash(){
+  setTimeout(()=>{
+    splash.classList.add("display-none");
+  },2000);
+}
+</script>
 {% endblock content %}

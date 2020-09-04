@@ -9,7 +9,7 @@
     <meta name="generator" content="Jekyll v4.1.1">
     <title>Sketch Your Life</title>
 
-    <!--link rel="shortcut icon" href="{% static 'ImgSketch/static_files/logo.png' %}" type="image/png"-->
+    <link rel="shortcut icon" href="{% static 'SketchYourLife/static_files/logo.png' %}" type="image/png">
 
     <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -42,7 +42,14 @@
   </head>
 
   <body>
+ 
+    <div class="loader-wrapper">
+      <span class="loader"><span class="loader-inner">
+      </span></span>
+<!--div><h1 class="cover-heading">Please wait while we process your image...</h1></div-->
+</div>
 
+    <div class="content">
     <div id="mySidenavAU" class="sidenavs">
       <a href="javascript:void(0)" class="closebtn" onclick="closeAU()">&times;</a><br><br>
       <h3 style="font-variant: small-caps;">About Us: </h3>
@@ -54,7 +61,7 @@
     <div class="cover-container d-flex w-100 h-100 p-30 mx-auto flex-column text-center">
   <header class="masthead mb-auto">
     <div class="inner">
-      <!--img src="{% static 'SketchYourLife/static_files/logo.png' %}" style="float: left;width: 10%;height: 10%;"/-->
+      <img src="{% static 'SketchYourLife/static_files/logo.png' %}" style="float: left;width: 10%;height: 10%;"/>
       <h3 class="masthead-brand"><a class="nav-link active  multicolortext" href="">Sketch Your Life</a></h3>
       <nav class="nav nav-masthead justify-content-center">
           <a class="nav-link" style="margin-left: auto;" onclick="openAU()" ondblclick="closeAU()">About Us</a>
@@ -87,10 +94,13 @@
   <a href="https://www.linkedin.com/in/devyesh-thomas-b93ab71a1">Devyesh-Thomas</a>
   <a href="https://www.linkedin.com/in/tauhid-khan-24bb45177">Tauhid-Khan</a>
 
-</div>
-  
-  
+</div></div>
+
 <script>
+  let preloader = document.querySelector(".loader-wrapper");
+  function preLoader(){
+    preloader.style.display = "flex";
+  };
   /*About Us*/
 function openAU() {
     document.getElementById("mySidenavAU").style.width = "auto";
