@@ -30,17 +30,12 @@ def home(request):
             fs.save(ufile.name, ufile)
 
             im2sk = Image2Sketch(pathIn=ufile,pathOut=PATHOUT,nameOut=ufile.name)
-<<<<<<< HEAD
-            im2sk.set_kernelsize_sigma(k=111,s=30)
-            im2sk.sketch_it()
-=======
             im2sk.set_kernelsize_sigma(k=KERNEL_SIZE,s=SIGMA)
             success = im2sk.sketch_it()
             if success:
                 print("COnverted successfully!!")
             else:
                 print("something went wrong")
->>>>>>> cde038c2e3957628a61262e84cd5cce58edf4948
 
             for a in os.listdir(PATHOUT):
                 sketched = os.path.join("static/SketchYourLife/sketched/",a)
