@@ -21,7 +21,7 @@
   if (file) {
      const reader = new FileReader();
      previewDefaultText.style.display = "none";
-     previewImg.style.display = "block";
+     previewImg.style.display = "block"; 
      
   
      reader.addEventListener("load", function() {
@@ -43,3 +43,19 @@
       window.alert("Please choose an Image first");
       }
   }
+
+  (function(){
+    var dropzone = document.getElementById("imgPreview");
+    dropzone.ondrop = function(e){
+      e.preventDefault();
+      return false;
+    }
+    dropzone.ondragover = function(){
+      this.className = 'image-preview dragover';
+      return false;
+    };
+    dropzone.ondragleave = function(){
+      this.className = 'image-preview';
+      return false;
+    };
+  }());

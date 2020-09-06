@@ -38,6 +38,7 @@
     <link href="{% static 'SketchYourLife/static_files/template.css' %}" rel="stylesheet">
     <link href="{% static 'SketchYourLife/static_files/sketchstyle.css' %}" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat">
     <script src="https://kit.fontawesome.com/01c60f5aa6.js" crossorigin="anonymous"></script>
   </head>
 
@@ -49,12 +50,25 @@
 <!--div><h1 class="cover-heading">Please wait while we process your image...</h1></div-->
 </div>
 
-    <div class="content">
     <div id="mySidenavAU" class="sidenavs">
       <a href="javascript:void(0)" class="closebtn" onclick="closeAU()">&times;</a><br><br>
-      <h3 style="font-variant: small-caps;">About Us: </h3>
-      <h6>Hey there,<br>Thanks for visiting us.<br>Hope you like it ^_^</h6>
-      <p style="left: 10px;">Special Thanks to <a href="https://www.linkedin.com/in/niki-parmar-7a06a11aa">Niki Parmar</a> for providing us with the logo</p>
+      <h3 style="font-variant: small-caps;font-size: larger;">About WebApp: </h3>
+      <p style="text-align:center;font-size: small;"><a href="">SketchYourlife </a>is a simple Web Application which let's you to sketch your favourite image with just one click.<br>
+        It uses a complex Image processing algorithm to turn your favourite image into a synthetic sketch.<br>
+        More sketch like filter might be added in later release.<br>Please do contact us for any query.</p><br>
+        <h3 style="font-variant: small-caps;font-size: larger;">About the Developers: </h3>
+        <small style="text-align:center;">
+          <dl>
+            <img class="about-image" src="{% static 'SketchYourLife/static_files/Tauhid.jpeg' %}" alt="Tauhid"/>
+            <dt>Tauhid Khan</dt>
+            <dd style="font-size: small;">Project lead and Computer Vision ML/DL Enthusiast</dd>
+            <img class="about-image" src="{% static 'SketchYourLife/static_files/Dev.jpg' %}" alt="Devyesh"/>
+            <dt>Devyesh Thomas</dt>
+            <dd style="font-size: small;">FrontEnd Developer and CyberSecurity Enthusiast</dd>
+          </dl>
+        </small>
+      
+      <p style="font-size: small;">A special thanks to<a href="https://www.linkedin.com/in/niki-parmar-7a06a11aa"> Niki Parmar </a>for providing us with this artistic logo.</p>
     </div>
 
 
@@ -62,7 +76,7 @@
   <header class="masthead mb-auto">
     <div class="inner">
       <img src="{% static 'SketchYourLife/static_files/logo.png' %}" style="float: left;width: 10%;height: 10%;"/>
-      <h3 class="masthead-brand"><a class="nav-link active  multicolortext" href="">Sketch Your Life</a></h3>
+      <h3 class="masthead-brand"><a class="nav-link active  multicolortext" href="">SketchYourLife</a></h3>
       <nav class="nav nav-masthead justify-content-center">
           <a class="nav-link" style="margin-left: auto;" onclick="openAU()" ondblclick="closeAU()">About Us</a>
         <a class="nav-link" style="margin-right: auto;" onclick="openNav()" ondblclick="closeNav()">Contact Us</a>
@@ -94,7 +108,7 @@
   <a href="https://www.linkedin.com/in/devyesh-thomas-b93ab71a1">Devyesh-Thomas</a>
   <a href="https://www.linkedin.com/in/tauhid-khan-24bb45177">Tauhid-Khan</a>
 
-</div></div>
+</div>
 
 <script>
   let preloader = document.querySelector(".loader-wrapper");
@@ -103,9 +117,9 @@
   };
   /*About Us*/
 function openAU() {
-    document.getElementById("mySidenavAU").style.width = "auto";
-    document.getElementById("mySidenavAU").style.height = "99%";
-    document.getElementById("mySidenavAU").style.padding = "5%";
+    document.getElementById("mySidenavAU").style.width = "60%";
+    document.getElementById("mySidenavAU").style.height = "89%";
+    document.getElementById("mySidenavAU").style.padding = "2%";
   }
   
   function closeAU() {
