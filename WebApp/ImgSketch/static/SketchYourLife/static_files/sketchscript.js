@@ -20,6 +20,7 @@ upfile.addEventListener("change", function () {
 
   const file = this.files[0];
   if (file) {
+<<<<<<< HEAD
     const reader = new FileReader();
     previewDefaultText.style.display = "none";
     previewImg.style.display = "block";
@@ -44,3 +45,45 @@ function ImageCheck() {
     window.alert("Please choose an Image first");
   }
 }
+=======
+     const reader = new FileReader();
+     previewDefaultText.style.display = "none";
+     previewImg.style.display = "block"; 
+     
+  
+     reader.addEventListener("load", function() {
+          previewImg.style.width = "100%";
+          previewImg.style.height = "100%";
+          previewImg.setAttribute("src", this.result);
+     });
+     reader.readAsDataURL(file);
+     
+     
+  
+  }else {}
+  });
+  
+  
+  function ImageCheck(){
+    if(upfile.files[0]){}
+    else{
+      window.alert("Please choose an Image first");
+      }
+  }
+
+  (function(){
+    var dropzone = document.getElementById("imgPreview");
+    dropzone.ondrop = function(e){
+      e.preventDefault();
+      return false;
+    }
+    dropzone.ondragover = function(){
+      this.className = 'image-preview dragover';
+      return false;
+    };
+    dropzone.ondragleave = function(){
+      this.className = 'image-preview';
+      return false;
+    };
+  }());
+>>>>>>> 2dc2c1f229cb5653302135704ae720359570bb22

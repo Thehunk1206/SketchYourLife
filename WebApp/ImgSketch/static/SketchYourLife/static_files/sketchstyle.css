@@ -1,3 +1,12 @@
+*{
+  font-family: Montserrat;
+}
+.about-image{
+  width: 10%;
+  height: 15%;
+  border-radius: 5px;
+}
+/*-----------------------*/
 .splash{
   width: 100%;
   height: 100vh;
@@ -23,13 +32,6 @@
   opacity: 0;
   animation: fadeIn 3s ease-in-out forwards;
   width: 20%;height: 40%;
-}
-.content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width:100%;
-  height:100%;
 }
 
 .loader-wrapper {
@@ -57,47 +59,41 @@
   color: transparent;
 }
 .sidenavs {
-font-family: "Times New Roman", "Times", "serif";
-border-radius: 10px;
-height: 100%;
-width: 0;
-position: fixed;
-z-index: 1;
-top: 0;
-left: 0;
-background-color: rgba(65, 64, 64, 0.945);
-overflow-x: hidden;
-transition: 0.5s;
-padding-top: 60px;
-text-align:center;
+  font-family: "Times New Roman", "Times", "serif";
+  border-radius: 10px;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 100;
+  top: 8%;
+  left: 20%;
+  background-color: rgba(109, 105, 105, 0.945);
+  overflow: hidden;
+  transition: 0.5s;
+  padding-top: 10px;
 }
 
-.sidenavs p {
-text-decoration: none;
-font-size: 16px;
-position: absolute;
-bottom: 0;
-color: #c7c1c1;
-transition: 0.3s;
+.sidenavs a {
+  
+  text-decoration: none;
+  font-size: 16px;
+  color: #e0e0e0;
+  display: inline-flexbox;
+  transition: 0.3s;
 
 }
-.sidenavs a{
-text-decoration: none;
-font-size: 16px;
-color: #c7c1c1;
-transition: 0.3s;
-}
+
 .sidenavs a:hover{
-color: #ffffff;
-}
-.sidenavs .closebtn {
-position: absolute;
-top: 0;
-left: 0;
-font-size: 36px;
-margin-left: 10px;
+  color: #ffffff;
 }
 
+.sidenavs .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
 
 
 /*----------------------------------*/
@@ -111,7 +107,7 @@ margin-left: 10px;
   top: 0;
   right: 0;
   background-color: rgba(109, 105, 105, 0.945);
-  overflow-x: hidden;
+  overflow: hidden;
   transition: 0.5s;
   padding-top: 60px;
   text-align:center;
@@ -157,6 +153,10 @@ margin-left: 10px;
   color: #cac5c5;
   
 }
+.image-preview.dragover{
+  border-color: rgb(138, 138, 138);
+  color: rgb(158, 157, 157);
+}
 .image-preview__image{
   display: none;
   width: 100%;
@@ -195,6 +195,10 @@ input[type=file] {
       background-size: 60%;
       height: auto;
     }
+    .sidenav,.sidenavs{
+      overflow: visible;
+      overflow-x: hidden;
+    }
 }
 @media only screen and (max-width:500px) {
     /* For mobile phones: */
@@ -204,6 +208,14 @@ input[type=file] {
     .loader-wrapper{
       background-size: 80%;
       height: auto;
+    }
+    .sidenav,.sidenavs{
+      overflow: visible;
+      overflow-x: hidden;
+    }
+    .about-image{
+      width: 25%;
+      height: 30%;
     }
   }
 
