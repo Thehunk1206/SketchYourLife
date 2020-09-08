@@ -26,7 +26,7 @@ SECRET_KEY = 'a+(7k^x8dr+1zw^8zc1&c%tw0ptap649mvar7uimssfjit%mn4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sketchyourlife.herokuapp.com','127.0.0.1','0.0.0.0']
 
 
 # Application definition
