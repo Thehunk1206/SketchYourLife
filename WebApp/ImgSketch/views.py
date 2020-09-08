@@ -32,8 +32,9 @@ def home(request):
             im2sk.set_kernelsize_sigma(k=111,s=30)
             im2sk.sketch_it()
 
-            filelist = os.listdir("./media/")
-            sketched = fs.url(filelist[1])
+            for file in os.listdir("./media/"):
+                if (file == "sketched_"+ufile.name):
+                    sketched = fs.url(file)
             
             return render(request, 'SketchYourLife/sketch.html', {
                 'sketched': sketched
