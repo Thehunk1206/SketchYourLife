@@ -29,7 +29,7 @@ def home(request):
             fs.save(ufile.name, ufile)
 
             im2sk = Image2Sketch(pathIn=ufile,pathOut=PATHOUT,nameOut=ufile.name)
-            im2sk.set_kernelsize_sigma(k=111,s=30)
+            im2sk.set_kernelsize_sigma(k=KERNEL_SIZE,s=SIGMA)
             im2sk.sketch_it()
 
             for file in os.listdir("./media/"):
