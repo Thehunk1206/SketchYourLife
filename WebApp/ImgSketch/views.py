@@ -10,8 +10,8 @@ import os
 from .core.ImageToSketch import Image2Sketch
 
 PATHOUT = "./media/"
-KERNEL_SIZE = 121
-SIGMA = 30
+KERNEL_SIZE = 81
+SIGMA = 20
 
 def home(request):
     fs = FileSystemStorage()
