@@ -13,8 +13,11 @@ PATHOUT = "./media/"
 KERNEL_SIZE = 81
 SIGMA = 20
 
+fs = FileSystemStorage()
+
+
 def home(request):
-    fs = FileSystemStorage()
+    
     try:
         for f in os.listdir("./media/"):
             fs.delete(f)
