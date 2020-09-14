@@ -10,12 +10,12 @@ Goto [NoteBook](https://github.com/Thehunk1206/SketchYourLife/blob/master/python
 width="200" height="300"/>
 
 ### Output Image
-+ Figure 1: Kernel size = 101, delta = 30
++ Figure 1: Kernel size = 221, Sigma = 30
 
-<img src="https://github.com/Thehunk1206/SketchYourLife/blob/master/results/result101.png" alt="original"
+<img src="https://github.com/Thehunk1206/SketchYourLife/blob/master/results/RDJsketch221.png" alt="original"
 width="200" height="300"/> 
 
-+ Figure 2: kernel size = 121, delta = 40
++ Figure 2: kernel size = 153, Sigma = 40
 
-<img src="https://github.com/Thehunk1206/SketchYourLife/blob/master/results/result121.png" alt="original"
+<img src="https://github.com/Thehunk1206/SketchYourLife/blob/master/results/RobertSketch153.png" alt="original"
 width="200" height="300"/>
