@@ -2,153 +2,210 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="generator" content="Jekyll v4.1.1">
-    <title>Sketch Your Life</title>
 
-    <link rel="shortcut icon" href="{% static 'SketchYourLife/static_files/logo.png' %}" type="image/png">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="generator" content="Jekyll v4.1.1">
+  <title>Sketch Your Life</title>
 
-    <!-- Bootstrap core CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <link rel="shortcut icon" href="{% static 'SketchYourLife/static_files/logo.png' %}" type="image/png">
 
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-    <!-- Custom styles for this template -->
-    <link href="{% static 'SketchYourLife/static_files/template.css' %}" rel="stylesheet">
-    <link href="{% static 'SketchYourLife/static_files/sketchstyle.css' %}" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat">
-    <script src="https://kit.fontawesome.com/01c60f5aa6.js" crossorigin="anonymous"></script>
-  </head>
-
-  <body>
- 
-    <div class="loader-wrapper">
-      <span class="loader"><span class="loader-inner">
-      </span></span>
-<!--div><h1 class="cover-heading">Please wait while we process your image...</h1></div-->
-</div>
-
-    <div id="mySidenavAU" class="sidenavs">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeAU()">&times;</a><br><br>
-      <h3 style="font-variant: small-caps;font-size: larger;">About WebApp: </h3>
-      <p style="text-align:center;font-size: small;"><a href="">SketchYourlife </a>is a simple Web Application which let's you to sketch your favourite image with just one click.<br>
-        It uses a complex Image processing algorithm to turn your favourite image into a synthetic sketch.<br>
-        More sketch like filter might be added in later release.<br>Please do contact us for any query.</p><br>
-        <h3 style="font-variant: small-caps;font-size: larger;">About the Developers: </h3>
-        <small style="text-align:center;">
-          <dl>
-            <img class="about-image" src="{% static 'SketchYourLife/static_files/Tauhid.jpeg' %}" alt="Tauhid"/>
-            <dt>Tauhid Khan</dt>
-            <dd style="font-size: small;">Project lead and Computer Vision ML/DL Enthusiast</dd>
-            <img class="about-image" src="{% static 'SketchYourLife/static_files/Dev.jpg' %}" alt="Devyesh"/>
-            <dt>Devyesh Thomas</dt>
-            <dd style="font-size: small;">FrontEnd Developer and CyberSecurity Enthusiast</dd>
-          </dl>
-        </small>
-      
-      <p style="font-size: small;text-align: center;">A special thanks to<a href="https://www.linkedin.com/in/niki-parmar-7a06a11aa"> Niki Parmar </a>for providing us with this artistic logo.</p>
-    </div>
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+  </script>
 
 
-    <div class="cover-container d-flex w-100 h-100 p-30 mx-auto flex-column text-center">
-  <header class="masthead mb-auto">
-    <div class="inner">
-      <img src="{% static 'SketchYourLife/static_files/logo.png' %}" style="float: left;width: 10%;height: 10%;"/>
-      <h3 class="masthead-brand"><a class="nav-link active  multicolortext" href="">SketchYourLife</a></h3>
-      <nav class="nav nav-masthead justify-content-center">
-          <a class="nav-link" style="margin-left: auto;" onclick="openAU()" ondblclick="closeAU()">About Us</a>
-        <a class="nav-link" style="margin-right: auto;" onclick="openNav()" ondblclick="closeNav()">Contact Us</a>
-      </nav>
-    </div>
-  </header><hr style="width:100%;text-align:center;background-color: white;">
-  <main role="main" class="inner cover">
-{% block content %}{% endblock %}
-    </main>
-<footer class="mastfoot mt-auto">
-    <div class="inner">
-      <p>&copy; Copyright 2020 <a href="">SketchYourLife</a>, by <a href="https://www.linkedin.com/in/tauhid-khan-24bb45177">@Tauhid</a> & <a href="https://www.linkedin.com/in/devyesh-thomas-b93ab71a1">@Devyesh</a>.</p>
-    </div>
-  </footer>
-</div>
-<div id="mySidenav" class="sidenav wrapper">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a><br>
-  <h3 style="font-variant: small-caps;">Contact Us At</h3><hr style="width:50%;text-align:center;background-color: white;"><br>
-  <i class="fas fa-envelope fa-2x" style="color:rgba(255, 255, 255, 0.788)"></i>
-  <a href="mailto: thomas.devyesh.3a29@gmail.com">Devyesh Thomas</a>
-  <a href="mailto: khantauhid313@gmail.com">Tauhid Khan</a><br>
-  <i class="fa fa-instagram fa-2x" style="color:rgba(255, 255, 255, 0.788)"></i>
-  <a href="https://www.instagram.com/__d_thomas__/">@__d_thomas__</a>
-  <a href="https://www.instagram.com/khansahab1206/">@khansahab1206</a><br>
-  <i class="fa fa-twitter fa-2x" style="color:rgba(255, 255, 255, 0.788)"></i>
-  <a href="https://twitter.com/DevyeshThomas/">@DevyeshThomas</a>
-  <a href="https:/twitter.com/KhanTauhid8/">@KhanTauhid8</a><br>
-  <i class="fa fa-linkedin fa-2x" style="color:rgba(255, 255, 255, 0.788)"></i>
-  <a href="https://www.linkedin.com/in/devyesh-thomas-b93ab71a1">Devyesh-Thomas</a>
-  <a href="https://www.linkedin.com/in/tauhid-khan-24bb45177">Tauhid-Khan</a>
-
-</div>
-
-<script>
-  let preloader = document.querySelector(".loader-wrapper");
-  function preLoader(){
-    if (window.matchMedia("(max-width: 800px)").matches) {
-    preloader.style.display = "flex";
-    preloader.style.width = "100%";
-    preloader.style.height = "100%";
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
     }
-    else{
-      preloader.style.display = "flex";
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
     }
-   
-  };
-  /*About Us*/
-function openAU() {
-    document.getElementById("mySidenavAU").style.width = "60%";
-    document.getElementById("mySidenavAU").style.height = "89%";
-    document.getElementById("mySidenavAU").style.padding = "2%";
-  }
+  </style>
+  <!-- Custom styles for this template -->
+  <link href="{% static 'SketchYourLife/static_files/template.css' %}" rel="stylesheet">
+  <link href="{% static 'SketchYourLife/static_files/sketchstyle.css' %}" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat">
+  <script src="https://kit.fontawesome.com/01c60f5aa6.js" crossorigin="anonymous"></script>
+
+
+
   
-  function closeAU() {
-    document.getElementById("mySidenavAU").style.width = "0";
-    document.getElementById("mySidenavAU").style.padding = "0";
-  }
-  /*contact us*/ 
-  function openNav() {
+
+</head>
+
+<body>
+
+  <div class="loader-wrapper">
+    <span class="loader"><span class="loader-inner">
+      </span></span>
+    <!--div><h1 class="cover-heading">Please wait while we process your image...</h1></div-->
+  </div>
+
+  <div id="mySidenavAU" class="sidenavs">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeAU()">&times;</a><br>
+    
+    <h3 style="font-variant: small-caps;font-size: larger;">About the Developers: </h3>
+    <small style="text-align:center;">
+      <dl>
+        <img class="about-image" src="{% static 'SketchYourLife/static_files/Tauhid.jpeg' %}" alt="Tauhid" />
+        <dt>Tauhid Khan</dt>
+        <dd style="font-size: small;">Machine Learning Enthusiast</dd>
+
+        <img class="about-image" src="{% static 'SketchYourLife/static_files/devansh.jpg' %}" alt="Devansh" />
+        <dt>Devansh Solani</dt>
+        <dd style="font-size: small;">Software Engineer and Full Stack Developer</dd>
+        <img class="about-image" src="{% static 'SketchYourLife/static_files/Dev.jpg' %}" alt="Devyesh" />
+        <dt>Devyesh Thomas</dt>
+        <dd style="font-size: small;">FrontEnd Developer and CyberSecurity Enthusiast</dd>
+      </dl>
+    </small>
+
+  </div>
+
+
+  <div class="cover-container d-flex w-100 h-100 p-30 mx-auto flex-column text-center">
+    <header class="masthead mb-auto">
+      <div class="inner">
+        <img src="{% static 'SketchYourLife/static_files/logo.png' %}" style="float: left;width: 10%;height: 10%;" />
+        <h3 class="masthead-brand"><a class="nav-link active  multicolortext" href="">SketchYourLife</a></h3>
+        <nav class="nav nav-masthead justify-content-center">
+          <a class="nav-link" style="margin-left: auto;" onclick="openAU()" ondblclick="closeAU()">About Us</a>
+          <a class="nav-link" style="margin-right: auto;" onclick="openNav()" ondblclick="closeNav()">Contact Us</a>
+
+        </nav>
+      </div>
+    </header>
+    <hr style="width:100%;text-align:center;background-color: white;">
+    <main role="main" class="inner cover">
+      {% block content %}{% endblock %}
+    </main>
+    <!-- Footer -->
+<footer class="page-footer font-small special-color-dark pt-4">
+
+  <!-- Footer Elements -->
+  <div class="container">
+
+    <!-- Social buttons -->
+    <ul class="list-unstyled list-inline text-center">
+      <li class="list-inline-item">
+        <a class="btn-floating btn-fb mx-1">
+          <i class="fab fa-facebook-f"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-tw mx-1">
+          <i class="fab fa-twitter"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-gplus mx-1">
+          <i class="fab fa-google-plus-g"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-li mx-1">
+          <i class="fab fa-linkedin-in"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-dribbble mx-1">
+          <i class="fab fa-dribbble"> </i>
+        </a>
+      </li>
+    </ul>
+    <!-- Social buttons -->
+
+  </div>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright || 
+    <a href="https://mdbootstrap.com/">SketchYourLife</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+  </div>
+  <div id="mySidenav" class="sidenav wrapper">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a><br>
+    <i class="fa fa-linkedin fa-2x" style="color:rgba(255, 255, 255, 0.788)"></i>
+    <a href="https://www.linkedin.com/in/devyesh-thomas-b93ab71a1">Devyesh-Thomas</a>
+    <a href="https://www.linkedin.com/in/tauhid-khan-24bb45177">Tauhid-Khan</a>
+    <a href="https://www.linkedin.com/in/devansh-solani-aa64a619b/">Devansh Solani</a><br>
+    <i class="fa fa-instagram fa-2x" style="color:rgba(255, 255, 255, 0.788)"></i>
+    <a href="https://www.instagram.com/__d_thomas__/">@__d_thomas__</a>
+    <a href="https://www.instagram.com/khansahab1206/">@khansahab1206</a>
+    <a href="https://www.instagram.com/devanshhsolani/">@devanshhsolani</a><br>
+    <i class="fa fa-twitter fa-2x" style="color:rgba(255, 255, 255, 0.788)"></i>
+    <a href="https://twitter.com/DevyeshThomas/">@DevyeshThomas</a>
+    <a href="https:/twitter.com/KhanTauhid8/">@KhanTauhid8</a>
+    <a href="https://twitter.com/SolaniDevansh">@SolaniDevansh</a><br>
+
+
+  </div>
+
+  <script>
+    let preloader = document.querySelector(".loader-wrapper");
+
+    function preLoader() {
+      if (window.matchMedia("(max-width: 800px)").matches) {
+        preloader.style.display = "flex";
+        preloader.style.width = "100%";
+        preloader.style.height = "100%";
+      } else {
+        preloader.style.display = "flex";
+      }
+
+    };
+    /*About Us*/
+    function openAU() {
+      document.getElementById("mySidenavAU").style.width = "60%";
+      document.getElementById("mySidenavAU").style.height = "89%";
+      document.getElementById("mySidenavAU").style.padding = "2%";
+    }
+
+    function closeAU() {
+      document.getElementById("mySidenavAU").style.width = "0";
+      document.getElementById("mySidenavAU").style.padding = "0";
+    }
+    /*contact us*/
+    function openNav() {
       document.getElementById("mySidenav").style.width = "auto";
       document.getElementById("mySidenav").style.height = "99%";
       document.getElementById("mySidenav").style.padding = "2%";
     }
-    
+
     function closeNav() {
       document.getElementById("mySidenav").style.width = "0";
       document.getElementById("mySidenav").style.padding = "0";
     }
+  </script>
 
-
-</script>
 
 
 </body>
+
 </html>

@@ -1,33 +1,142 @@
 {% extends "SketchYourLife/base.html" %}
 {% block content %}
 {% load static %}
-<body onload="Splash()">
-<div class="splash">
-  <img class="fadeIn" src="{% static 'SketchYourLife/static_files/logo.png' %}" style="width: auto;"/><br>
-  <!--h1 class="fadeIn">Welcome to Sketch Your Life</h1-->
-</div>
-<h1 class="cover-heading">Add an image here</h1>
-
-<form  action="" method="POST" enctype="multipart/form-data" onsubmit="preLoader()" novalidate>
-  {% csrf_token %}
-    <div class="image-preview" id="imgPreview"><!--try-->
-        <img src="" alt="Image Preview" class="image-preview__image fitimage"><!--onload="finalImg()"-->
-        <span class="image-preview__default-text">Let's start by choosing an Image</span>
-    </div>
-  
-    <input class="btn btn-lg btn-secondary" type="file" name="ufile" id="upfile" accept="image/*"/>
-    <label for="upfile" title="Upload file" class="btn btn-lg btn-secondary" id="btnstyle">Choose an Image</label>
-    <input type="submit" value="Lets's Sketch" class="btn btn-lg btn-secondary" onclick="ImageCheck()"/>
-  
-</form>
-<script src="{% static 'SketchYourLife/static_files/sketchscript.js' %}"></script>
-<script>
-  const splash = document.querySelector(".splash");
-function Splash(){
-  setTimeout(()=>{
-    splash.classList.add("display-none");
-  },1500);
+<head>
+   <style>
+      button {
+        display: inline-block;
+        background-color: #7b38d8;
+        border-radius: 10px;
+        border: 4px double #cccccc;
+        color: #03132b;
+        text-align: center;
+        font-size: 28px;
+        padding: 8px;
+        width: 200px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+      }
+      button span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+      }
+      button span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+      }
+      button:hover {
+        background-color: #f7c2f9;
+      }
+      button:hover span {
+        padding-right: 25px;
+      }
+      button:hover span:after {
+        opacity: 1;
+        right: 0;
+      }
+    </style>
+    <style> 
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid red;
 }
+</style>
 
-</script>
-{% endblock content %}
+
+
+
+    
+</head>
+<body onload="Splash()">
+  <div class="splash">
+    <img class="fadeIn" src="{% static 'SketchYourLife/static_files/logo.png' %}" style="width: auto;" /><br>
+    <!--h1 class="fadeIn">Welcome to Sketch Your Life</h1-->
+  </div>
+  <h1 class="cover-heading">Add an image here</h1>
+
+  <form action="" method="POST" enctype="multipart/form-data" onsubmit="preLoader()" novalidate>
+    {% csrf_token %}
+    <div class="image-preview" id="imgPreview">
+      <!--try-->
+      <img src="" alt="Image Preview" class="image-preview__image fitimage">
+      <!--onload="finalImg()"-->
+      <span class="image-preview__default-text">Let's start by choosing an Image</span>
+    </div>
+
+    <input class="btn btn-lg btn-secondary" type="file" name="ufile" id="upfile" accept="image/*" />
+    <label for="upfile" title="Upload file" class="btn btn-lg btn-secondary" id="btnstyle">Choose an Image</label>
+    <input type="submit" value="Lets's Sketch" class="btn btn-lg btn-secondary" onclick="ImageCheck()" />
+
+  </form>
+<br><br><br>
+
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6 col-md-6">
+        <h4 style="text-align: center;">Add Comments</h4>
+        <hr style="text-align:center;background-color: white;">
+        <form method="POST" action="{% url 'comments'  %}"> {% csrf_token %}
+          <div class="form-group">
+            <label for="Name">Name</label>
+            <input type="text" class="form-control" name="name" id="Name" placeholder="Name">
+
+          </div>
+          <div class="form-group">
+            <label for="Message">Message</label>
+            <input type="Text" class="form-control" name="mesg" id="Message" placeholder="Message">
+          </div>
+
+          <button type="submit"><span>Submit</span></button>
+        </form>
+      </div>
+      <div class="col-sm-6 col-md-6">
+        <h4 style="text-align: center;">All Comments</h4>
+        <hr style="text-align:center;background-color: white;">
+        {% for allcomments in allcomments %}
+        <div style="background-color: transparent;">
+          <h5 style="font-weight: bold; color:rgb(255, 255, 255)" class="name">Name: {{ allcomments.name }}</h5>
+          <p style="color: #f7c2f9">Comment: {{ allcomments.mesg }}</p>
+          <hr style="color: antiquewhite;">
+
+        </div>
+
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <script src="{% static 'SketchYourLife/static_files/sketchscript.js' %}"></script>
+  <script>
+    const splash = document.querySelector(".splash");
+
+    function Splash() {
+      setTimeout(() => {
+        splash.classList.add("display-none");
+      }, 1500);
+    }
+  </script>
+  {% endblock content %}
