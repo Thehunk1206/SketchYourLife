@@ -113,7 +113,15 @@
 <script>
   let preloader = document.querySelector(".loader-wrapper");
   function preLoader(){
+    if (window.matchMedia("(max-width: 800px)").matches) {
     preloader.style.display = "flex";
+    preloader.style.width = "100%";
+    preloader.style.height = "100%";
+    }
+    else{
+      preloader.style.display = "flex";
+    }
+   
   };
   /*About Us*/
 function openAU() {
