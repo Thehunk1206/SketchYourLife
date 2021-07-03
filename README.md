@@ -21,4 +21,4 @@ width="200" height="300"/>
 width="200" height="300"/>
 
 ## Web App
-+ you can checkout our website [here](https://sketchyourlife.herokuapp.com/)
++ You can check the project by pressing this [link](https://sketchyourlife.herokuapp.com/)
